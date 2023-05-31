@@ -24,13 +24,16 @@ std::uint32_t MainWindow::getHeight()
 
 void MainWindow::start()
 {
-	sf::RectangleShape r(sf::Vector2f(100,50));
-    r.setFillColor(BLUE);
     sf::RenderWindow window(sf::VideoMode(this->width, this->height), TITLE);
+
+    /* init player*/
     Player pl;
-    pl.setColor(BLACK);
+    pl.setColor(Color::Blue);
     pl.setPos(0.0,0.0);
     pl.setSize(50,50);
+    //pl.setSpeed(100.5f);
+    /*------------*/
+
     while (window.isOpen())
     {
         window.setFramerateLimit(120);

@@ -3,10 +3,9 @@
 
 #include "window.h"
 
-// just use "using" keyword smh but nvm it's cooler 
-#define BLACK sf::Color::Black
-#define WHITE sf::Color::White
-#define BLUE  sf::Color::Blue
+using sf::Color;
+
+#define SPEED 50;
 
 class Player 
 {
@@ -17,11 +16,14 @@ private:
     sf::Vector2f pos  {};
     sf::Color clr {};
 
+private:
+    float velo {0.0f};
+
 public:
     void setColor(const sf::Color& clor);
     void setPos(float x , float y);
     void setSize(float w , float h);
-
+    void setSpeed(float v);
 
 public:
     void setMovement(sf::Event& e);

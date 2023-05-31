@@ -17,24 +17,31 @@ void Player::setSize(float w , float h)
     this->size.y = h;
 }
 
+void Player::setSpeed(float v)
+{
+    this->velo = v;
+}
+
 void Player::setMovement(sf::Event& e)
 {
+    if (this->velo == 0.0f) this->velo = SPEED;
+
     if (e.type == sf::Event::KeyPressed)
     {
         switch (e.key.code)
         {
         case sf::Keyboard::W:
-            this->pos.y -= 10.5;
+            this->pos.y -= this->velo;
             break;
         case sf::Keyboard::S:
-            this->pos.y += 10.5;
+            this->pos.y += this->velo;
             break;
 
         case sf::Keyboard::A:
-            this->pos.x -= 10.5;
+            this->pos.x -= this->velo;
             break;
         case sf::Keyboard::D:
-            this->pos.x += 10.5;
+            this->pos.x += this->velo;
             break;
         default:
             break;
