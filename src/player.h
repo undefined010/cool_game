@@ -26,7 +26,7 @@ public:
     void setSpeed(float v);
 
 public:
-    void setMovement(sf::Event& e);
+    void setMovement();
 
 private:
     sf::RectangleShape initPlayer();

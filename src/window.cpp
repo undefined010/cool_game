@@ -31,7 +31,7 @@ void MainWindow::start()
     pl.setColor(Color::Blue);
     pl.setPos(0.0,0.0);
     pl.setSize(50,50);
-    //pl.setSpeed(100.5f);
+    pl.setSpeed(2.0f);
     /*------------*/
 
     while (window.isOpen())
@@ -41,13 +41,13 @@ void MainWindow::start()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            pl.setMovement(event);
+            
             if (event.type == sf::Event::Closed)
                 window.close();
         }
 
         window.clear(this->color);
-            
+        pl.setMovement();
         pl.draw(window);
         window.display();
     }

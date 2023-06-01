@@ -22,31 +22,16 @@ void Player::setSpeed(float v)
     this->velo = v;
 }
 
-void Player::setMovement(sf::Event& e)
+void Player::setMovement()
 {
     if (this->velo == 0.0f) this->velo = SPEED;
 
-    if (e.type == sf::Event::KeyPressed)
-    {
-        switch (e.key.code)
-        {
-        case sf::Keyboard::W:
-            this->pos.y -= this->velo;
-            break;
-        case sf::Keyboard::S:
-            this->pos.y += this->velo;
-            break;
-
-        case sf::Keyboard::A:
-            this->pos.x -= this->velo;
-            break;
-        case sf::Keyboard::D:
-            this->pos.x += this->velo;
-            break;
-        default:
-            break;
-        }
-    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) this->pos.y -= this->velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) this->pos.y += this->velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->pos.x += this->velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) this->pos.x -= this->velo;
+    
+    this->player.setPosition(this->pos);
 }
 
 sf::RectangleShape Player::initPlayer()
