@@ -5,7 +5,7 @@
 
 using sf::Color;
 
-#define SPEED 50;
+#define SPEED 2.5f;
 
 class Player 
 {
@@ -17,7 +17,7 @@ private:
     sf::Color clr {};
 
 private:
-    float velo {0.0f};
+    float velo = SPEED;
 
 public:
     void setColor(const sf::Color& clor);

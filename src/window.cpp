@@ -1,5 +1,9 @@
-#include "window.h"
 #include "player.h"
+
+MainWindow::~MainWindow()
+{
+    printf("\n--Main Window destroyed--\n");
+}
 
 void MainWindow::setBounds(const std::uint32_t& w , const std::uint32_t& h)
 {
@@ -30,7 +34,7 @@ void MainWindow::start()
     Player pl;
     pl.setColor(Color::Blue);
     pl.setPos(0.0,0.0);
-    pl.setSize(50,50);
+    pl.setSize(100,50);
     pl.setSpeed(2.0f);
     /*------------*/
 
@@ -42,7 +46,7 @@ void MainWindow::start()
         while (window.pollEvent(event))
         {
             
-            if (event.type == sf::Event::Closed)
+            if ((event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ))
                 window.close();
         }
 

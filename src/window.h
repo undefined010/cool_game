@@ -14,7 +14,7 @@
 
 class MainWindow 
 {
-	
+
 private:
 	std::uint32_t width {WIDTH};
 	std::uint32_t height{HEIGHT};
@@ -22,6 +22,9 @@ private:
 
 public:
     void start();
+
+public:
+	~MainWindow();
 	
 public:
 	void setBounds(const std::uint32_t& w , const std::uint32_t& h);

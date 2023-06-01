@@ -24,8 +24,6 @@ void Player::setSpeed(float v)
 
 void Player::setMovement()
 {
-    if (this->velo == 0.0f) this->velo = SPEED;
-
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) this->pos.y -= this->velo;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) this->pos.y += this->velo;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->pos.x += this->velo;
