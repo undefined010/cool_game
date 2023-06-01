@@ -17,6 +17,10 @@ private:
     sf::Color clr {};
 
 private:
+    sf::Texture texture;
+    sf::Sprite sprite;
+
+private:
     float velo = SPEED;
 
 public:
@@ -26,10 +30,10 @@ public:
     void setSpeed(float v);
 
 public:
-    void setMovement();
+    sf::Sprite setImg(const std::string& path);
 
-private:
-    sf::RectangleShape initPlayer();
+public:
+    void setMovement();
 
 public:
     void draw(sf::RenderWindow& window);

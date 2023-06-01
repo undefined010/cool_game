@@ -2,47 +2,50 @@
 
 void Player::setColor(const sf::Color& clor) 
 {
-    this->clr = clor;
+    clr = clor;
 }
 
 void Player::setPos(float x , float y)
 {
-    this->pos.x = x;
-    this->pos.y = y;
+    pos.x = x;
+    pos.y = y;
 }
 
 void Player::setSize(float w , float h)
 {
-    this->size.x = w;
-    this->size.y = h;
+    size.x = w;
+    size.y = h;
+}
+
+sf::Sprite Player::setImg(const std::string& path)
+{
+    if (!(texture.loadFromFile(path)))
+        exit(EXIT_FAILURE);
+    sprite.setTexture(texture);
+    sprite.setPosition(player.getPosition());
+    sprite.setScale(0.5f,0.5f);
+    //sprite.setTextureRect(sf::IntRect(player.getPosition().x , player.getPosition().y , player.getSize().x , player.getSize().y));
+
+    return sprite;
 }
 
 void Player::setSpeed(float v)
 {
-    this->velo = v;
+    velo = v;
 }
 
 void Player::setMovement()
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) this->pos.y -= this->velo;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) this->pos.y += this->velo;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) this->pos.x += this->velo;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) this->pos.x -= this->velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) pos.y -= velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) pos.y += velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) pos.x += velo;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) pos.x -= velo;
     
-    this->player.setPosition(this->pos);
+    player.setPosition(pos);
 }
 
-sf::RectangleShape Player::initPlayer()
-{
-    this->player.setSize(this->size);
-    this->player.setPosition(this->pos);
-    this->player.setFillColor(this->clr);
-
-    return this->player;
-}
 
 void Player::draw(sf::RenderWindow& window)
 {
-
-    window.draw(this->initPlayer());
+    window.draw(setImg("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship.png"));
 }
