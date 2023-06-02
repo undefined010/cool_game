@@ -19,14 +19,24 @@ void Player::setSize(float w , float h)
 
 sf::Sprite Player::setImg(const std::string& path)
 {
-    if (!(texture.loadFromFile(path)))
-        exit(EXIT_FAILURE);
+    if (!(img.loadFromFile(path))) exit(EXIT_FAILURE);
+
+    img.createMaskFromColor(sf::Color::White); // need to be fixed later
+
+    if (!(texture.loadFromImage(img))) exit(EXIT_FAILURE);
+
     sprite.setTexture(texture);
     sprite.setPosition(player.getPosition());
     sprite.setScale(0.5f,0.5f);
-    //sprite.setTextureRect(sf::IntRect(player.getPosition().x , player.getPosition().y , player.getSize().x , player.getSize().y));
+    // sprite.setRotation(180.0f); later 
+    // sprite.rotate(180.0f);      later
 
     return sprite;
+}
+
+sf::Vector2f Player::getPos()
+{
+    return pos;
 }
 
 void Player::setSpeed(float v)
@@ -39,13 +49,12 @@ void Player::setMovement()
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) pos.y -= velo;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) pos.y += velo;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) pos.x += velo;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) pos.x -= velo;
-    
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) pos.x -= velo;;
     player.setPosition(pos);
 }
 
 
 void Player::draw(sf::RenderWindow& window)
 {
-    window.draw(setImg("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship.png"));
+    window.draw(setImg("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship2.png"));
 }

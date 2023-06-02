@@ -11,6 +11,9 @@ class Player
 {
 
 private:
+    sf::Vector2f posNew;
+
+private:
     sf::RectangleShape player;
     sf::Vector2f size {};
     sf::Vector2f pos  {};
@@ -19,6 +22,7 @@ private:
 private:
     sf::Texture texture;
     sf::Sprite sprite;
+    sf::Image img;
 
 private:
     float velo = SPEED;
@@ -28,6 +32,10 @@ public:
     void setPos(float x , float y);
     void setSize(float w , float h);
     void setSpeed(float v);
+    //void collision(sf::Vector2f r);
+
+public:
+    sf::Vector2f getPos();
 
 public:
     sf::Sprite setImg(const std::string& path);
