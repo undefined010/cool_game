@@ -4,8 +4,8 @@
 #include <string_view>
 
 
-#define HEIGHT 350
-#define WIDTH 450
+#define HEIGHT 1400
+#define WIDTH 1600
 #define TITLE "Window Alpha 0.1"
 #define COLOR sf::Color::White
 

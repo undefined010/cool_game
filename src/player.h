@@ -32,7 +32,7 @@ public:
     void setPos(float x , float y);
     void setSize(float w , float h);
     void setSpeed(float v);
-    //void collision(sf::Vector2f r);
+    void collision();
 
 public:
     sf::Vector2f getPos();
