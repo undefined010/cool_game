@@ -30,10 +30,14 @@ void MainWindow::start()
 {
     sf::RenderWindow window(sf::VideoMode(this->width, this->height), TITLE);
 
+    texture_window.loadFromFile("/Users/ahmadodeh/Coding/cool_game/src/imgs/space_window.png");
+    sprite_window.setTexture(texture_window);
+    sprite_window.scale(7.5f,8.5f);
+
     /* init player*/
     Player pl;
     pl.setColor(Color::Blue);
-    pl.setPos(0.0,0.0);
+    pl.setPos((width / 2) - 80, height / 2);
     pl.setSize(100,50);
     pl.setSpeed(2.0f);
     /*------------*/
@@ -47,11 +51,16 @@ void MainWindow::start()
         {
             
             if ((event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ))
+            {
                 window.close();
+                exit(EXIT_SUCCESS);
+            }
         }
-
-        window.clear(this->color);
+        window.clear();
+        window.draw(sprite_window);
         pl.setMovement();
+        
+        
         pl.draw(window);
         window.display();
     }

@@ -16,6 +16,10 @@ class MainWindow
 {
 
 private:
+	sf::Texture texture_window;
+	sf::Sprite sprite_window;
+
+private:
 	std::uint32_t width {WIDTH};
 	std::uint32_t height{HEIGHT};
 	sf::Color color {COLOR};

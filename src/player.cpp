@@ -92,5 +92,5 @@ void Player::draw(sf::RenderWindow& window)
 {
     collision();
     printf("x : %0.2f , y : %0.2f\n",player.getPosition().x , player.getPosition().y);
-    window.draw(setImg("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship2.png"));
+    window.draw(setImg("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship1.png"));
 }
