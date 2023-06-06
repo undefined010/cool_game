@@ -1,4 +1,5 @@
 #include "player.h"
+#include "Entity.h"
 
 MainWindow::~MainWindow()
 {
@@ -42,6 +43,15 @@ void MainWindow::start()
     pl.setSpeed(2.0f);
     /*------------*/
 
+    /* test entity */
+
+    Entity en;
+    en.setEntityPos(sf::Vector2f(0,0));
+    en.setEntityTexture("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship3.png");
+
+    /*************/
+
+
     while (window.isOpen())
     {
         window.setFramerateLimit(120);
@@ -58,10 +68,10 @@ void MainWindow::start()
         }
         window.clear();
         window.draw(sprite_window);
+        en.draw(window);
         pl.setMovement();
-        
-        
         pl.draw(window);
+
         window.display();
     }
 
