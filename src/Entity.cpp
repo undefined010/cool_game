@@ -12,7 +12,10 @@ void Entity::setEntityPos(sf::Vector2f pos_)
 
 void Entity::setEntityTexture(const std::string& path)
 {
-    this->texture.loadFromFile(path);
+    if (!(this->texture.loadFromFile(path)))
+    {
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Entity::setEntitySprite(sf::Sprite sprite)
