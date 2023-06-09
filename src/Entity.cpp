@@ -48,8 +48,23 @@ sf::Sprite Entity::initEntity()
     return this->sprite;
 }
 
+void Entity::movement()
+{
+    this->pos.x += this->rate_of_change;
+
+    if (this->pos.x  <= 0 - (this->sprite.getScale().x + 50))
+    {
+        this->rate_of_change *= -1;
+    }
+
+    if (this->pos.x > 1350 - this->sprite.getScale().x)
+    {
+        this->rate_of_change *= -1;
+    }
+}
+
+
 void Entity::draw(sf::RenderWindow& w)
 {
-    
     w.draw(initEntity());
 }

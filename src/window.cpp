@@ -48,7 +48,6 @@ void MainWindow::start()
     Entity en;
     en.setEntityPos(sf::Vector2f(0,0));
     en.setEntityTexture("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship3.png");
-
     /*************/
 
 
@@ -69,6 +68,7 @@ void MainWindow::start()
         window.clear();
         window.draw(sprite_window);
         en.draw(window);
+        en.movement();
         pl.setMovement();
         pl.draw(window);
 

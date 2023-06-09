@@ -6,6 +6,9 @@
 class Entity {
 
 private:
+    float rate_of_change {3.5f};
+
+private:
     sf::Vector2f pos;
     sf::Vector2f size;
     sf::Color clr;
@@ -27,6 +30,7 @@ public:
 
 public:
     void draw(sf::RenderWindow& w);
+    void movement();
 
 };
 
