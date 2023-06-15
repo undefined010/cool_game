@@ -6,7 +6,9 @@
 class Entity {
 
 private:
-    float rate_of_change {3.5f};
+    float xrate_of_change {3.5f};
+    float yrate_of_change {3.5f};
+    float Health {100.0f};
 
 private:
     sf::Vector2f pos;
@@ -21,6 +23,7 @@ public:
     void setEntityColor(sf::Color color_);
     void setEntityTexture(const std::string& path);
     void setEntitySprite(sf::Sprite sprite_);
+    void setHealth(float helth_);
 
 public:
     sf::Vector2f getEntityPos();

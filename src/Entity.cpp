@@ -50,19 +50,35 @@ sf::Sprite Entity::initEntity()
 
 void Entity::movement()
 {
-    this->pos.x += this->rate_of_change;
+    this->pos.x += this->xrate_of_change;
+    this->pos.y += this->yrate_of_change;
 
     if (this->pos.x  <= 0 - (this->sprite.getScale().x + 50))
     {
-        this->rate_of_change *= -1;
+        this->xrate_of_change *= -1;
     }
 
     if (this->pos.x > 1350 - this->sprite.getScale().x)
     {
-        this->rate_of_change *= -1;
+        this->xrate_of_change *= -1;
+    }
+
+    if (this->pos.y <= 0 -(this->sprite.getScale().y))
+    {
+        this->yrate_of_change *= -1;
+    }
+
+    if (this->pos.y > 500 - (this->sprite.getScale().y))
+    {
+        this->yrate_of_change *= -1;
     }
 }
 
+
+void Entity::setHealth(float health_)
+{
+    this->Health = health_;
+}
 
 void Entity::draw(sf::RenderWindow& w)
 {
