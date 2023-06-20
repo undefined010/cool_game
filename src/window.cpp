@@ -1,4 +1,5 @@
 #include "player.h"
+#include "WindowTools.h"
 
 MainWindow::~MainWindow()
 {
@@ -42,13 +43,13 @@ void MainWindow::start()
     pl.setSpeed(2.0f);
     /*------------*/
 
-    /* test entity */
-
     Entity en;
     en.setEntityPos(sf::Vector2f(0, 0));
     en.setEntityTexture("/Users/ahmadodeh/Coding/cool_game/src/imgs/spaceship3.png");
-    /*************/
-
+    
+    /* test button*/
+    GUI::Button pause_btn;
+    pause_btn.setPosition(sf::Vector2f(1573,-1));
     while (window.isOpen())
     {
         window.setFramerateLimit(120);
@@ -67,6 +68,14 @@ void MainWindow::start()
         /* REMOVE IT */
         // window.clear(sf::Color::White);
         window.draw(sprite_window);
+        pause_btn.draw(window);
+        pause_btn.addActionListiener([](){
+            /* Testing acctionlistiener */
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
+            {
+                printf("PAUSE BUTTON PRESSED\n");
+            }
+        });
         en.draw(window);
         en.movement();
         pl.setMovement();
