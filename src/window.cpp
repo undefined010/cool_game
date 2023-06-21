@@ -49,7 +49,7 @@ void MainWindow::start()
     
     /* test button*/
     GUI::Button pause_btn;
-    pause_btn.setPosition(sf::Vector2f(1573,-1));
+    pause_btn.setPosition(sf::Vector2i(1573,-1));
     while (window.isOpen())
     {
         window.setFramerateLimit(120);
@@ -71,11 +71,8 @@ void MainWindow::start()
         pause_btn.draw(window);
         pause_btn.addActionListiener([](){
             /* Testing acctionlistiener */
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-            {
-                printf("PAUSE BUTTON PRESSED\n");
-            }
-        });
+            printf("hi\n");
+        } , window);
         en.draw(window);
         en.movement();
         pl.setMovement();

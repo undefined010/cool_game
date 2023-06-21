@@ -122,7 +122,7 @@ void Player::collosionLaser(Entity en)
         printf("\nTEST Y\n");
     }
 
-    printf("player(%0.2f , %0.2f),laser(%0.2f , %0.2f ), target(%f , %f)\n",pos.x , pos.y,laser_sprite.getPosition().x,laser_sprite.getPosition().y,en.getEntityPos().x , en.getEntityPos().y);
+    //printf("player(%0.2f , %0.2f),laser(%0.2f , %0.2f ), target(%f , %f)\n",pos.x , pos.y,laser_sprite.getPosition().x,laser_sprite.getPosition().y,en.getEntityPos().x , en.getEntityPos().y);
 }
 
 void Player::draw(sf::RenderWindow &window)
