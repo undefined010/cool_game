@@ -1,6 +1,6 @@
 #include "WindowTools.h"
 
-bool::GUI::Button::isMouseInPosition(sf::RenderWindow& win)
+bool GUI::Button::isMouseInPosition(sf::RenderWindow& win)
 {
     bool xCords = sf::Mouse::getPosition(win).x <= 1600 && sf::Mouse::getPosition(win).x >= 1600-32;
     bool yCords = sf::Mouse::getPosition(win).y >= this->getPosition().y && sf::Mouse::getPosition(win).y <= 32;
