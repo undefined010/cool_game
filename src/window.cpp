@@ -1,6 +1,8 @@
 #include "player.h"
 #include "WindowTools.h"
 
+#include <vector>
+
 MainWindow::~MainWindow()
 {
     printf("\n--Main Window destroyed--\n");
@@ -50,6 +52,7 @@ void MainWindow::start()
     /* test button*/
     GUI::Button pause_btn;
     pause_btn.setPosition(sf::Vector2i(1573,-1));
+
     while (window.isOpen())
     {
         window.setFramerateLimit(120);
@@ -69,9 +72,9 @@ void MainWindow::start()
         // window.clear(sf::Color::White);
         window.draw(sprite_window);
         pause_btn.draw(window);
-        pause_btn.addActionListiener([](){
+        pause_btn.addActionListiener([&window](){
             /* Testing acctionlistiener */
-            printf("hi\n");
+            window.close(); // will be remove later
         } , window);
         en.draw(window);
         en.movement();
